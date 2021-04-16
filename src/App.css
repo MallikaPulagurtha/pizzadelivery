@@ -1,0 +1,167 @@
+body {
+  color: white;
+  text-align: center;
+}
+.topbar {
+  margin: 0 20px 0px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  height: 100px;
+}
+.link:hover {
+  text-decoration: none;
+}
+.btn:hover {
+  border: 2px solid white;
+}
+.welcomebtn {
+  border: 1px solid rgb(255, 255, 255);
+  font-size: 30px;
+  margin-top: 100px;
+  border-radius: 25px;
+  width: 500px;
+  height: 100px;
+}
+.welcomepage {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+Link:hover {
+  border: white;
+}
+.input {
+  width: 500px;
+}
+hr {
+  background-color: white;
+}
+.data {
+  padding: 60px;
+}
+.geturl {
+  background-color: rgb(97, 35, 97);
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  text-align: center !important;
+}
+.urllabel {
+  color: white;
+  font-size: 50px;
+  margin-left: 6.8em;
+}
+.data {
+  margin-top: 50px;
+}
+.generate {
+  background-color: rgb(97, 35, 97);
+  border: 1px solid rgb(255, 255, 255);
+  font-size: 20px;
+  margin-top: 50px;
+  border-radius: 10px;
+  width: 400px;
+  height: 60px;
+}
+.generatebtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.urls {
+  background-color: rgba(0, 0, 0, 0.527);
+  color: white;
+  border: 0.5px solid white;
+  border-radius: 10px;
+}
+a {
+  color: white;
+}
+a:hover {
+  color: white;
+}
+.login {
+  background-color: rgba(0, 0, 0, 0.527);
+  padding: 20px;
+}
+.login_btn {
+  border: 1px solid white;
+  color: white;
+  width: 15.5em;
+}
+.login-button {
+  padding: 10px 0 10px 0;
+}
+header,
+.header-content {
+  position: relative;
+  width: 100%;
+  padding: 40px 15px;
+  text-align: center;
+  z-index: 2;
+}
+
+.header-content {
+  font-size: 16px;
+  font-weight: 300;
+  color: white;
+}
+.welcomebtn {
+  font-size: 45px !important;
+  text-align: center;
+  border: 1px solid rgb(255, 255, 255);
+  font-size: 30px;
+  margin-top: 100px;
+  border-radius: 25px;
+  width: 500px;
+  height: 100px;
+}
+.intro {
+  font-size: 50px;
+}
+.btn-light {
+  font-size: 20px;
+  color: white;
+  width: 120px;
+}
+form {
+  display: inline-block;
+  text-align: left;
+}
+h2 {
+  margin-left: 10px;
+}
+.createpizza {
+  margin: 20px;
+  width: 300px;
+  height: 70px;
+  font-size: 30px;
+  border: 2px solid white;
+}
+table {
+  background-color: rgba(0, 0, 0, 0.527);
+  font-size: 20px;
+  margin: 20px 0 0 1em;
+}
+td {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid white;
+}
+.buynow {
+  margin: 20px;
+  width: 300px;
+  height: 70px;
+  font-size: 30px;
+  border: 2px solid white;
+  margin-left: 6em;
+}
+hr {
+  width: 50%;
+}
+span {
+  font-size: 25px;
+}
+.total {
+  margin-top: 40px;
+}
