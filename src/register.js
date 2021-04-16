@@ -49,7 +49,7 @@ function Register() {
                                         setPhone(e.target.value)
                                     }} />
                                 </div>
-                                <button className="btn float-right login_btn"><a href="/login">Create Your Account</a></button>
+                                <button className="btn float-right login_btn">Create Your Account</button>
                             </div>
                             <div className="card-footer">
                                 <div className="d-flex justify-content-center links">
