@@ -2,15 +2,15 @@ import axios from "axios";
 
 //USER METHODS
 export function postUserRegister(user) {
-    return axios.post("http://localhost:3001/register", user);
+    return axios.post("https://guvihackathon2.herokuapp.com/register", user);
 }
 
 export function postUserLogin(user) {
-    return axios.post("http://localhost:3001/login", user);
+    return axios.post("https://guvihackathon2.herokuapp.com/login", user);
 };
 
 export function getUser(id) {
-    return axios.get(`http://localhost:3001/${id}`, {
+    return axios.get(`https://guvihackathon2.herokuapp.com/${id}`, {
         headers: {
             authorization: window.localStorage.getItem("loginToken")
         }
@@ -18,7 +18,7 @@ export function getUser(id) {
 };
 
 export function postPizza(id, pizza) {
-    return axios.post(`http://localhost:3001/pizza/${id}`, pizza, {
+    return axios.post(`https://guvihackathon2.herokuapp.com/pizza/${id}`, pizza, {
         headers: {
             authorization: window.localStorage.getItem("loginToken")
         }
@@ -26,7 +26,7 @@ export function postPizza(id, pizza) {
 };
 
 export function postCustomPizza(id, pizza) {
-    return axios.post(`http://localhost:3001/${id}`, pizza, {
+    return axios.post(`https://guvihackathon2.herokuapp.com/${id}`, pizza, {
         headers: {
             authorization: window.localStorage.getItem("loginToken")
         }
@@ -34,7 +34,7 @@ export function postCustomPizza(id, pizza) {
 };
 
 export function GetPizza(id, pizza) {
-    return axios.post(`http://localhost:3001/${id}`, pizza, {
+    return axios.post(`https://guvihackathon2.herokuapp.com/${id}`, pizza, {
         headers: {
             authorization: window.localStorage.getItem("loginToken")
         }
@@ -42,7 +42,7 @@ export function GetPizza(id, pizza) {
 };
 
 export function deletePizza(id, order) {
-    return axios.put(`http://localhost:3001/delpizza/${id}`, order, {
+    return axios.put(`https://guvihackathon2.herokuapp.com/delpizza/${id}`, order, {
         headers: {
             authorization: window.localStorage.getItem("loginToken")
         }
@@ -50,7 +50,7 @@ export function deletePizza(id, order) {
 }
 
 export function deleteCustomPizza(id, order) {
-    return axios.put(`http://localhost:3001/delcustompizza/${id}`, order, {
+    return axios.put(`https://guvihackathon2.herokuapp.com/delcustompizza/${id}`, order, {
         headers: {
             authorization: window.localStorage.getItem("loginToken")
         }
@@ -60,11 +60,11 @@ export function deleteCustomPizza(id, order) {
 //ADMIN METHODS
 
 export function postAdminLogin(user) {
-    return axios.post("http://localhost:3001/adminlogin", user);
+    return axios.post("https://guvihackathon2.herokuapp.com/adminlogin", user);
 };
 
 export function postAdminProduct(id, pizza) {
-    return axios.post(`http://localhost:3001/adminpost/${id}`, pizza, {
+    return axios.post(`https://guvihackathon2.herokuapp.com/adminpost/${id}`, pizza, {
         headers: {
             authorization: window.localStorage.getItem("loginToken")
         }
@@ -72,7 +72,7 @@ export function postAdminProduct(id, pizza) {
 };
 
 export function postAdminPizza(id, pizza) {
-    return axios.post(`http://localhost:3001/adminpostpizza/${id}`, pizza, {
+    return axios.post(`https://guvihackathon2.herokuapp.com/adminpostpizza/${id}`, pizza, {
         headers: {
             authorization: window.localStorage.getItem("loginToken")
         }
@@ -80,7 +80,7 @@ export function postAdminPizza(id, pizza) {
 };
 
 export function getAdminProduct() {
-    return axios.get(`http://localhost:3001/admingetprod`, {
+    return axios.get(`https://guvihackathon2.herokuapp.com/admingetprod`, {
         headers: {
             authorization: window.localStorage.getItem("loginToken")
         }
