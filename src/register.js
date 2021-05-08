@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { postUserRegister } from "./api";
 
 function Register() {
+
+    let history = useHistory();
 
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
@@ -13,6 +15,7 @@ function Register() {
 
     return (
         <>
+
             <form onSubmit={async (e) => {
                 e.preventDefault();
                 await postUserRegister(userData);
@@ -20,9 +23,10 @@ function Register() {
                 setUsername("");
                 setPassword("");
                 setPhone("");
+                history.push("/login");
 
             }}>
-                <div className="container">
+                <div className="container mt-5">
                     <div className="d-flex justify-content-center h-100">
                         <div className="card login">
                             <div className="card-header">
@@ -30,32 +34,44 @@ function Register() {
                             </div>
                             <div className="card-body">
                                 <div className="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    </div>
                                     <input type="text" className="form-control" value={email} placeholder="Email Address" onChange={(e) => {
                                         setEmail(e.target.value)
                                     }} />
                                 </div>
                                 <div className="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
                                     <input type="text" className="form-control" value={username} placeholder="Username" onChange={(e) => {
                                         setUsername(e.target.value)
                                     }} />
                                 </div>
                                 <div className="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
                                     <input type="password" className="form-control" value={password} placeholder="Password" onChange={(e) => {
                                         setPassword(e.target.value)
                                     }} />
                                 </div>
                                 <div className="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                    </div>
                                     <input type="number" className="form-control" value={phone} placeholder="Phone Number" onChange={(e) => {
                                         setPhone(e.target.value)
                                     }} />
                                 </div>
-                                <button className="btn float-right login_btn">Create Your Account</button>
+                                <button className="btn login_btn">Create Account</button>
                             </div>
                             <div className="card-footer">
-                                <div className="d-flex justify-content-center links">
+                                <div>
                                     Have an account?
                                 </div>
-                                <div className="d-flex justify-content-center">
+                                <div>
                                     <Link to="/login">Sign In</Link>
                                 </div>
                             </div>

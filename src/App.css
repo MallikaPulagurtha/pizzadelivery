@@ -1,41 +1,47 @@
+@import url("https://fonts.googleapis.com/css?family=Amatic+SC|Raleway");
+
 body {
+  margin-bottom: 5em;
+  /* background-image: url("https://getwallpapers.com/wallpaper/full/e/d/3/109464.jpg"); */
+  background-image: url("https://getwallpapers.com/wallpaper/full/8/a/a/44046.jpg");
   color: white;
   text-align: center;
-}
-.topbar {
-  margin: 0 20px 0px 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  height: 100px;
+  font-family: "Raleway", sans-serif;
 }
 .link:hover {
   text-decoration: none;
 }
 .btn:hover {
   border: 2px solid white;
+  color: white;
 }
 .welcomebtn {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   border: 1px solid rgb(255, 255, 255);
-  font-size: 30px;
-  margin-top: 100px;
   border-radius: 25px;
-  width: 500px;
-  height: 100px;
+  min-height: 15vh;
+  min-width: 35vw;
 }
 .welcomepage {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
+@media screen and (max-width: 480px) {
+  .welcomebtn {
+    width: 100%;
+  }
+}
 Link:hover {
   border: white;
 }
 .input {
   width: 500px;
-}
-hr {
-  background-color: white;
 }
 .data {
   padding: 60px;
@@ -84,21 +90,19 @@ a:hover {
   background-color: rgba(0, 0, 0, 0.527);
   padding: 20px;
 }
-.login_btn {
-  border: 1px solid white;
-  color: white;
-  width: 15.5em;
+.fas {
+  color: black;
 }
 .login-button {
   padding: 10px 0 10px 0;
 }
 header,
 .header-content {
-  position: relative;
-  width: 100%;
-  padding: 40px 15px;
-  text-align: center;
-  z-index: 2;
+  margin-top: 130px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .header-content {
@@ -106,62 +110,101 @@ header,
   font-weight: 300;
   color: white;
 }
-.welcomebtn {
-  font-size: 45px !important;
-  text-align: center;
-  border: 1px solid rgb(255, 255, 255);
-  font-size: 30px;
-  margin-top: 100px;
-  border-radius: 25px;
-  width: 500px;
-  height: 100px;
+.company {
+  font-size: 40px;
+}
+.navbar {
+  background-color: rgba(0, 0, 0, 0.527) !important;
 }
 .intro {
-  font-size: 50px;
+  font-family: "Amatic SC", sans-serif;
+  text-transform: uppercase;
+  font-size: 60px;
+  margin-left: 10px;
+}
+h2 {
+  padding: 10px;
+}
+.Button {
+  max-width: 30vw;
+  color: white;
 }
 .btn-light {
   font-size: 20px;
   color: white;
-  width: 120px;
+  min-height: 8vh;
+  min-width: 12vw;
 }
-form {
+input[type="text"] {
+  /* margin: 20px; */
+  /* text-align: center; */
   display: inline-block;
-  text-align: left;
+  /* max-width: 30vw; */
+  /* background-color: rgba(255, 255, 255, 0.363); */
+  /* color: white; */
 }
-h2 {
+.btn {
+  width: 10em;
+}
+.login_btn {
+  border: 1px solid white;
+  color: white;
+  width: 100%;
+}
+.options {
+  font-family: "Amatic SC", sans-serif;
+  text-transform: uppercase;
+  font-size: 40px;
   margin-left: 10px;
 }
-.createpizza {
-  margin: 20px;
-  width: 300px;
-  height: 70px;
-  font-size: 30px;
-  border: 2px solid white;
-}
-table {
-  background-color: rgba(0, 0, 0, 0.527);
-  font-size: 20px;
-  margin: 20px 0 0 1em;
-}
-td {
-  width: 300px;
+.Title {
+  font-family: "Amatic SC", sans-serif;
+  text-transform: uppercase;
+  font-size: 50px;
   padding: 10px;
-  border: 1px solid white;
 }
-.buynow {
-  margin: 20px;
-  width: 300px;
-  height: 70px;
-  font-size: 30px;
+.opts {
+  font-size: 20px;
+}
+img {
+  max-height: 25vh;
+  /* max-width: 40vw; */
+}
+#orderimg {
+  max-height: 15vh;
+}
+.createpizza {
+  color: white;
+  min-width: 20vw;
+  min-height: 10vh;
+  font-size: 20px;
   border: 2px solid white;
-  margin-left: 6em;
+  background-color: rgba(0, 0, 0, 0.363);
+}
+.ordercard {
+  background-color: rgba(0, 0, 0, 0.527);
+}
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 hr {
-  width: 50%;
+  max-width: 70em;
+  height: 2px;
+  background-color: white;
+  border: 0;
 }
+.divider {
+  margin: 40px;
+}
+.card {
+  border: 1px solid white;
+}
+
 span {
   font-size: 25px;
 }
 .total {
-  margin-top: 40px;
+  font-size: 2em;
 }

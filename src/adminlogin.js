@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { postUserLogin } from "./api";
+import { postAdminLogin } from "./api";
 
-function Login(props) {
+function AdminLogin(props) {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    // const [data, setData] = useState("");
 
     let userData = { email, password };
 
@@ -16,17 +18,18 @@ function Login(props) {
             <form onSubmit={async (e) => {
                 e.preventDefault();
                 try {
-                    let loginData = await postUserLogin(userData);
-                    window.localStorage.setItem("loginToken", loginData.data.token);
+                    let loginData = await postAdminLogin(userData);
+                    window.localStorage.setItem("adminToken", loginData.data.token);
                     console.log(loginData.data);
 
                     let token = loginData.data.token;
                     if (token) {
-                        history.push(`/selection/${loginData.data.id}`);
+                        history.push(`/admindesk/${loginData.data.id}`);
                     }
                     else {
-                        history.push('/login');
                         alert("Email or Password is incorrect");
+
+                        history.push('/login');
                     }
 
                 } catch (error) {
@@ -40,7 +43,7 @@ function Login(props) {
                     <div className="d-flex justify-content-center h-100">
                         <div className="card login">
                             <div className="card-header">
-                                <h3>Sign In</h3>
+                                <h3>Administration Credentials</h3>
                             </div>
                             <div className="card-body">
                                 <div className="input-group form-group">
@@ -59,15 +62,7 @@ function Login(props) {
                                         setPassword(e.target.value)
                                     }} />
                                 </div>
-                                <button className="btn login_btn">Login</button>
-                            </div>
-                            <div className="card-footer">
-                                <div>
-                                    Don't have an account?
-                                </div>
-                                <div>
-                                    <Link to="/register">Sign Up</Link>
-                                </div>
+                                <button className="btn login_btn">Login as an Admin</button>
                             </div>
                         </div>
                     </div>
@@ -78,4 +73,4 @@ function Login(props) {
     )
 }
 
-export default Login;
+export default AdminLogin;

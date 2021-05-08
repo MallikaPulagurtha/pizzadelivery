@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
-import { postPizza, getUser } from "./api"
+import { postCustomPizza, getUser } from "./api"
 import { Link, useParams, useHistory } from "react-router-dom"
+
 
 function Main() {
     const params = useParams();
@@ -16,6 +17,8 @@ function Main() {
     const [veggies, setVeggies] = useState("");
     const [veggiescost, setVeggiescost] = useState(0);
 
+    let [orderid, setOrderid] = useState(0);
+
     let totalcost = basecost + saucecost + cheesecost + veggiescost;
 
 
@@ -30,81 +33,86 @@ function Main() {
 
     return (
         <>
-            <form onSubmit={async (e) => {
+            <form className="center" onSubmit={async (e) => {
                 e.preventDefault();
                 let pizzaData = { base, sauce, cheese, veggies, totalcost };
-                await postPizza(params.id, pizzaData);
+                setOrderid(parseInt(orderid) + 1);
+                console.log(orderid);
+                await postCustomPizza(params.id, pizzaData);
                 history.push(`/pizza/${params.id}`);
             }}>
-                <div className="row">
-                    <div className="col col-8"><h2>Select your Base</h2></div>
-                    <div className="col col-2"><Link to={`/pizza/${params.id}`} className="btn btn-info generatebtn">Your Cart</Link></div>
-                    <div classname="col col-2">
-                        <button className="btn btn-danger generatebtn" onClick={() => {
-                            window.localStorage.removeItem("app_token");
-                        }}><a href="/login">Logout</a></button>
-                    </div>
+                <div className="options">Select your Base</div>
+                <div className="col col-6">
+                    <input type="button" class="btn btn-light bg-transparent m-2" value="Thin" onClick={(e) => { setBase(e.target.value); setBasecost(10) }} />
+                    <input type="button" class="btn btn-light bg-transparent m-2" value="Thick" onClick={(e) => { setBase(e.target.value); setBasecost(20) }} />
+                    <input type="button" class="btn btn-light bg-transparent m-2" value="Custom" onClick={(e) => { setBase(e.target.value); setBasecost(30) }} />
+                    <input type="button" class="btn btn-light bg-transparent m-2" value="Baked" onClick={(e) => { setBase(e.target.value); setBasecost(40) }} />
+                    <input type="button" class="btn btn-light bg-transparent m-2" value="Wheat" onClick={(e) => { setBase(e.target.value); setBasecost(50) }} />
+                    <input type="button" class="btn btn-light bg-transparent m-2" value="Plain" onClick={(e) => { setBase(e.target.value); setBasecost(43) }} />
+
                 </div>
-                <input type="button" class="btn btn-light bg-transparent m-3" value="Thin" onClick={(e) => { setBase(e.target.value); setBasecost(10) }} />
-                <input type="button" class="btn btn-light bg-transparent m-3" value="Thick" onClick={(e) => { setBase(e.target.value); setBasecost(20) }} />
-                <input type="button" class="btn btn-light bg-transparent m-3" value="Custom" onClick={(e) => { setBase(e.target.value); setBasecost(30) }} />
-                <input type="button" class="btn btn-light bg-transparent m-3" value="Baked" onClick={(e) => { setBase(e.target.value); setBasecost(40) }} />
-                <input type="button" class="btn btn-light bg-transparent m-3" value="Wheat" onClick={(e) => { setBase(e.target.value); setBasecost(50) }} />
-                <span>${basecost}</span>
-                <div class="col col-6">
+                <div className="col col-3">
+                    <span>${basecost}</span>
                     <div class="form-group">
                         <label>Pizza Base</label>
-                        <input type="text" class="form-control" value={base} />
-                    </div></div>
+                        <input type="text" class="form-control selection" value={base} />
+                    </div>
+                </div>
 
-                <h2>Select your Sauce</h2>
-                <input type="button" class="btn btn-light bg-transparent m-3" value="Barbecue" onClick={(e) => { setSauce(e.target.value); setSaucecost(10) }} />
-                <input type="button" class="btn btn-light bg-transparent m-3" value="Hot" onClick={(e) => { setSauce(e.target.value); setSaucecost(9) }} />
-                <input type="button" class="btn btn-light bg-transparent m-3" value="Taco" onClick={(e) => { setSauce(e.target.value); setSaucecost(8) }} />
-                <input type="button" class="btn btn-light bg-transparent m-3" value="Tomato" onClick={(e) => { setSauce(e.target.value); setSaucecost(19) }} />
-                <input type="button" class="btn btn-light bg-transparent m-3" value="Cocktail" onClick={(e) => { setSauce(e.target.value); setSaucecost(22) }} />
+                <div className="options">Select your Sauce</div>
+                <div className="col col-6">
+                    <input type="button" class="btn btn-light bg-transparent m-2" value="Barbecue" onClick={(e) => { setSauce(e.target.value); setSaucecost(10) }} />
+                    <input type="button" class="btn btn-light bg-transparent m-2" value="Hot" onClick={(e) => { setSauce(e.target.value); setSaucecost(9) }} />
+                    <input type="button" class="btn btn-light bg-transparent m-2" value="Taco" onClick={(e) => { setSauce(e.target.value); setSaucecost(8) }} />
+                    <input type="button" class="btn btn-light bg-transparent m-2" value="Tomato" onClick={(e) => { setSauce(e.target.value); setSaucecost(19) }} />
+                    <input type="button" class="btn btn-light bg-transparent m-2" value="Cocktail" onClick={(e) => { setSauce(e.target.value); setSaucecost(22) }} />
+                    <input type="button" class="btn btn-light bg-transparent m-2" value="Red Hot" onClick={(e) => { setSauce(e.target.value); setSaucecost(19) }} />
+
+                </div>
                 <span>${saucecost}</span>
-                <div class="col col-6">
+                <div class="col col-3">
                     <div class="form-group">
                         <label>Pizza Sauce</label>
                         <input type="text" class="form-control" value={sauce} />
                     </div></div>
 
-                <h2>Select the type of Cheese</h2>
-                <input type="button" class="btn btn-light bg-transparent m-3" value="Mozarella" onClick={(e) => { setCheese(e.target.value); setCheesecost(10) }} />
-                <input type="button" class="btn btn-light bg-transparent m-3" value="Cheddar" onClick={(e) => { setCheese(e.target.value); setCheesecost(9) }} />
-                <input type="button" class="btn btn-light bg-transparent m-3" value="Feda" onClick={(e) => { setCheese(e.target.value); setCheesecost(10) }} />
-                <input type="button" class="btn btn-light bg-transparent m-3" value="Tomato" onClick={(e) => { setCheese(e.target.value); setCheesecost(15) }} />
-                <input type="button" class="btn btn-light bg-transparent m-3" value="Parmesan" onClick={(e) => { setCheese(e.target.value); setCheesecost(20) }} />
+                <div className="options">Select the type of Cheese</div>
+                <div className="col col-6">
+                    <input type="button" class="btn btn-light bg-transparent m-2" value="Mozarella" onClick={(e) => { setCheese(e.target.value); setCheesecost(10) }} />
+                    <input type="button" class="btn btn-light bg-transparent m-2" value="Cheddar" onClick={(e) => { setCheese(e.target.value); setCheesecost(9) }} />
+                    <input type="button" class="btn btn-light bg-transparent m-2" value="Feda" onClick={(e) => { setCheese(e.target.value); setCheesecost(10) }} />
+                    <input type="button" class="btn btn-light bg-transparent m-2" value="Tomato" onClick={(e) => { setCheese(e.target.value); setCheesecost(15) }} />
+                    <input type="button" class="btn btn-light bg-transparent m-2" value="Classy" onClick={(e) => { setCheese(e.target.value); setCheesecost(10) }} />
+                    <input type="button" class="btn btn-light bg-transparent m-2" value="Parmesan" onClick={(e) => { setCheese(e.target.value); setCheesecost(20) }} />
+                </div>
                 <span>${cheesecost}</span>
-                <div class="col col-6">
+                <div class="col col-3">
                     <div class="form-group">
                         <label>Cheese</label>
                         <input type="text" class="form-control" value={cheese} />
                     </div></div>
 
-                <h2>Select your veggies</h2>
-                <input type="button" class="btn btn-light bg-transparent m-3" value="Tomatoes" onClick={(e) => { setVeggies(e.target.value); setVeggiescost(10) }} />
-                <input type="button" class="btn btn-light bg-transparent m-3" value="Onions" onClick={(e) => { setVeggies(e.target.value); setVeggiescost(5) }} />
-                <input type="button" class="btn btn-light bg-transparent m-3" value="Capsicum" onClick={(e) => { setVeggies(e.target.value); setVeggiescost(6) }} />
-                <input type="button" class="btn btn-light bg-transparent m-3" value="Mushroom" onClick={(e) => { setVeggies(e.target.value); setVeggiescost(12) }} />
-                <input type="button" class="btn btn-light bg-transparent m-3" value="Corn" onClick={(e) => { setVeggies(e.target.value); setVeggiescost(19) }} />
+                <div className="options">Select your veggies</div>
+                <div className="col col-6">
+
+                    <input type="button" class="btn btn-light bg-transparent m-2" value="Tomatoes" onClick={(e) => { setVeggies(e.target.value); setVeggiescost(10) }} />
+                    <input type="button" class="btn btn-light bg-transparent m-2" value="Onions" onClick={(e) => { setVeggies(e.target.value); setVeggiescost(5) }} />
+                    <input type="button" class="btn btn-light bg-transparent m-2" value="Capsicum" onClick={(e) => { setVeggies(e.target.value); setVeggiescost(6) }} />
+                    <input type="button" class="btn btn-light bg-transparent m-2" value="Mushroom" onClick={(e) => { setVeggies(e.target.value); setVeggiescost(12) }} />
+                    <input type="button" class="btn btn-light bg-transparent m-2" value="Corn" onClick={(e) => { setVeggies(e.target.value); setVeggiescost(19) }} />
+                    <input type="button" class="btn btn-light bg-transparent m-2" value="Paneer" onClick={(e) => { setVeggies(e.target.value); setVeggiescost(13) }} />
+
+                </div>
                 <span>${veggiescost}</span>
-                <div class="col col-6">
+                <div class="col col-3">
                     <div class="form-group">
                         <label>Veggies</label>
                         <input type="text" class="form-control" value={veggies} />
                     </div></div>
-                <div className="row">
-                    <div className="col col-4 total">
-                        <h3>Total Cost - $ {totalcost}</h3>
-                    </div>
-                    <div className="col col-8">
-                        <button type="submit" class="btn btn-light bg-transparent createpizza">Create Your Pizza</button>
-                    </div>
-                </div>
-
-            </form>
+                <div className="total m-2">Total Cost - $ {totalcost}</div>
+                <button type="submit" class="btn createpizza bg-transparent m-4">Create Your Pizza</button>
+                <Link to={`/pizza/${params.id}`}><button class="btn btn-light createpizza bg-transparent m-3">Your Cart</button></Link>
+            </form >
         </>
     )
 }
