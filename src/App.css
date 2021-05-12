@@ -15,18 +15,6 @@ body {
   border: 2px solid white;
   color: white;
 }
-.welcomebtn {
-  margin-top: 50px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  border: 1px solid rgb(255, 255, 255);
-  border-radius: 25px;
-  min-height: 15vh;
-  min-width: 35vw;
-}
 .welcomepage {
   display: flex;
   flex-direction: row;
@@ -98,7 +86,7 @@ a:hover {
 }
 header,
 .header-content {
-  margin-top: 130px;
+  margin-top: 80px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -135,14 +123,27 @@ h2 {
   min-height: 8vh;
   min-width: 12vw;
 }
+.welcomebtn {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 5px;
+  min-height: 15vh;
+  min-width: 35vw;
+}
 input[type="text"] {
   /* margin: 20px; */
   /* text-align: center; */
   display: inline-block;
-  /* max-width: 30vw; */
+  /* min-width: 30vw; */
   /* background-color: rgba(255, 255, 255, 0.363); */
   /* color: white; */
 }
+
 .btn {
   width: 10em;
 }
@@ -190,7 +191,7 @@ img {
   align-items: center;
 }
 hr {
-  max-width: 70em;
+  max-width: 20em;
   height: 2px;
   background-color: white;
   border: 0;

@@ -35,7 +35,7 @@ function Pizza() {
                 {
                     cost1 + cost2 === 0 ? <h2 className="options">Your Cart is Empty</h2> : <div></div>
                 }
-                <h2 className="Title">Your Orders - {pizza.length}</h2>
+                <h2 className="Title">Your Orders</h2>
                 <div class="row">
                     {
                         pizza.map((item, index) => {
@@ -66,7 +66,7 @@ function Pizza() {
                         })
                     }
                 </div>
-                <h2 className="Title">Custom Made Orders - {customPizza.length}</h2>
+                <h2 className="Title">Custom Made Orders</h2>
                 <div class="row">
                     {
                         customPizza.map((item, index) => {

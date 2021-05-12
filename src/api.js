@@ -42,19 +42,11 @@ export function GetPizza(id, pizza) {
 };
 
 export function deletePizza(id, order) {
-    return axios.put(`https://guvihackathon2.herokuapp.com/delpizza/${id}`, order, {
-        headers: {
-            authorization: window.localStorage.getItem("loginToken")
-        }
-    });
+    return axios.put(`https://guvihackathon2.herokuapp.com/delpizza/${id}`, order);
 }
 
 export function deleteCustomPizza(id, order) {
-    return axios.put(`https://guvihackathon2.herokuapp.com/delcustompizza/${id}`, order, {
-        headers: {
-            authorization: window.localStorage.getItem("loginToken")
-        }
-    });
+    return axios.put(`https://guvihackathon2.herokuapp.com/delcustompizza/${id}`, order);
 }
 
 //ADMIN METHODS
@@ -80,11 +72,7 @@ export function postAdminPizza(id, pizza) {
 };
 
 export function getAdminProduct() {
-    return axios.get(`https://guvihackathon2.herokuapp.com/admingetprod`, {
-        headers: {
-            authorization: window.localStorage.getItem("loginToken")
-        }
-    });
+    return axios.get(`https://guvihackathon2.herokuapp.com/admingetprod`);
 };
 
 

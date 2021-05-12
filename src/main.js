@@ -42,7 +42,7 @@ function Main() {
                 history.push(`/pizza/${params.id}`);
             }}>
                 <div className="options">Select your Base</div>
-                <div className="col col-6">
+                <div className="col col-lg-6">
                     <input type="button" class="btn btn-light bg-transparent m-2" value="Thin" onClick={(e) => { setBase(e.target.value); setBasecost(10) }} />
                     <input type="button" class="btn btn-light bg-transparent m-2" value="Thick" onClick={(e) => { setBase(e.target.value); setBasecost(20) }} />
                     <input type="button" class="btn btn-light bg-transparent m-2" value="Custom" onClick={(e) => { setBase(e.target.value); setBasecost(30) }} />
@@ -51,7 +51,7 @@ function Main() {
                     <input type="button" class="btn btn-light bg-transparent m-2" value="Plain" onClick={(e) => { setBase(e.target.value); setBasecost(43) }} />
 
                 </div>
-                <div className="col col-3">
+                <div className="col col-lg-3">
                     <span>${basecost}</span>
                     <div class="form-group">
                         <label>Pizza Base</label>
@@ -60,7 +60,7 @@ function Main() {
                 </div>
 
                 <div className="options">Select your Sauce</div>
-                <div className="col col-6">
+                <div className="col col-lg-6">
                     <input type="button" class="btn btn-light bg-transparent m-2" value="Barbecue" onClick={(e) => { setSauce(e.target.value); setSaucecost(10) }} />
                     <input type="button" class="btn btn-light bg-transparent m-2" value="Hot" onClick={(e) => { setSauce(e.target.value); setSaucecost(9) }} />
                     <input type="button" class="btn btn-light bg-transparent m-2" value="Taco" onClick={(e) => { setSauce(e.target.value); setSaucecost(8) }} />
@@ -70,14 +70,14 @@ function Main() {
 
                 </div>
                 <span>${saucecost}</span>
-                <div class="col col-3">
+                <div class="col col-lg-3">
                     <div class="form-group">
                         <label>Pizza Sauce</label>
                         <input type="text" class="form-control" value={sauce} />
                     </div></div>
 
                 <div className="options">Select the type of Cheese</div>
-                <div className="col col-6">
+                <div className="col col-lg-6">
                     <input type="button" class="btn btn-light bg-transparent m-2" value="Mozarella" onClick={(e) => { setCheese(e.target.value); setCheesecost(10) }} />
                     <input type="button" class="btn btn-light bg-transparent m-2" value="Cheddar" onClick={(e) => { setCheese(e.target.value); setCheesecost(9) }} />
                     <input type="button" class="btn btn-light bg-transparent m-2" value="Feda" onClick={(e) => { setCheese(e.target.value); setCheesecost(10) }} />
@@ -86,14 +86,14 @@ function Main() {
                     <input type="button" class="btn btn-light bg-transparent m-2" value="Parmesan" onClick={(e) => { setCheese(e.target.value); setCheesecost(20) }} />
                 </div>
                 <span>${cheesecost}</span>
-                <div class="col col-3">
+                <div class="col col-lg-3">
                     <div class="form-group">
                         <label>Cheese</label>
                         <input type="text" class="form-control" value={cheese} />
                     </div></div>
 
                 <div className="options">Select your veggies</div>
-                <div className="col col-6">
+                <div className="col col-lg-6">
 
                     <input type="button" class="btn btn-light bg-transparent m-2" value="Tomatoes" onClick={(e) => { setVeggies(e.target.value); setVeggiescost(10) }} />
                     <input type="button" class="btn btn-light bg-transparent m-2" value="Onions" onClick={(e) => { setVeggies(e.target.value); setVeggiescost(5) }} />
@@ -104,7 +104,7 @@ function Main() {
 
                 </div>
                 <span>${veggiescost}</span>
-                <div class="col col-3">
+                <div class="col col-lg-3">
                     <div class="form-group">
                         <label>Veggies</label>
                         <input type="text" class="form-control" value={veggies} />

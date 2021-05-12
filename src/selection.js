@@ -12,9 +12,9 @@ function Selection() {
             <div class="header-content">
                 <div>
                     <div class="intro">Yes, you do have Choice.</div>
-                    <Button variant="outlined" className="Button m-3" color="primary" style={{ color: "white", border: "1px solid white" }} onClick={() => { history.push(`/userdesk/${params.id}`) }}>Buy Pizzas</Button>
-                    <span>&hearts;</span>
-                    <Button variant="outlined" className="Button m-3" color="primary" style={{ color: "white", border: "1px solid white" }} onClick={() => { history.push(`/main/${params.id}`) }}>Customise</Button>
+                    <Link to={`/userdesk/${params.id}`}><button class="btn btn-light createpizza bg-transparent m-3">Buy Pizzas</button></Link>
+                    <Link to={`/main/${params.id}`}><button class="btn btn-light createpizza bg-transparent m-3">Customize</button></Link>
+
                 </div>
             </div>
         </>
